@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DownloadTask downloadTask = new DownloadTask();
+
         recyclerView = findViewById(R.id.recyclerView);
         newsListRecyclerAdapter = new NewsListRecyclerAdapter(this, titleList);
         linearLayoutManager = new LinearLayoutManager(this);
