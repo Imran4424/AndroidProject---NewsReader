@@ -14,12 +14,12 @@ import java.util.List;
 /**
  * Created by Shah Md Imran Hossain on 01, December, 2020
  */
-public class NewsListRecyclerView extends RecyclerView.Adapter<NewsListRecyclerView.ViewHolder> {
+public class NewsListRecyclerAdapter extends RecyclerView.Adapter<NewsListRecyclerAdapter.ViewHolder> {
     private final Context context;
     private final LayoutInflater layoutInflater;
     private final List<String> titleList;
 
-    public NewsListRecyclerView(Context context, List<String> titleList) {
+    public NewsListRecyclerAdapter(Context context, List<String> titleList) {
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
         this.titleList = titleList;
@@ -27,14 +27,14 @@ public class NewsListRecyclerView extends RecyclerView.Adapter<NewsListRecyclerV
 
     @NonNull
     @Override
-    public NewsListRecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public NewsListRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = layoutInflater.inflate(R.layout.item_news_list, parent, false);
 
         return new ViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NewsListRecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NewsListRecyclerAdapter.ViewHolder holder, int position) {
         holder.textView.setText(titleList.get(position));
     }
 
