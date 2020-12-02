@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
                     httpURLConnection = (HttpURLConnection) url.openConnection();
 
                     result = getResultUrl(httpURLConnection);
+
+                    Log.i("Article Info", result);
                 }
 
 
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         private String getResultUrl(HttpURLConnection httpURLConnection) throws IOException {
-            String result = ;
+            String result = "";
             InputStream inputStream = httpURLConnection.getInputStream();
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             int data = inputStreamReader.read();
