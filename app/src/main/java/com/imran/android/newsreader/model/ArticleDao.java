@@ -27,9 +27,7 @@ public interface ArticleDao {
     // delete all query
     @Delete
     void reset(List<ArticleData> articleDataList);
-
-
-
+    
     // update query
     @Query("UPDATE " + Constants.TABLE_NAME_ARTICLE +
             " SET articleID = :uArticleID, title = :uTitle, content = :uContent WHERE ID = :uID")
