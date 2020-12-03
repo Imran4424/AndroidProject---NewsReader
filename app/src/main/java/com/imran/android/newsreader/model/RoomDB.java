@@ -9,5 +9,6 @@ import androidx.room.RoomDatabase;
 
 @Database(entities = {ArticleData.class}, version = 1, exportSchema = false)
 public abstract class RoomDB extends RoomDatabase {
-
+    // create database instance
+    private static RoomDB database;
 }
