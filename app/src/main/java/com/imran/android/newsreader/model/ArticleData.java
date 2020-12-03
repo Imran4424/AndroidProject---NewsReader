@@ -18,12 +18,15 @@ public class ArticleData implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int ID;
 
+    // create articleID column
     @ColumnInfo(name = Constants.COLUMN_ARTICLE_ID)
     private int articleID;
 
+    // create title column
     @ColumnInfo(name = Constants.COLUMN_TITLE)
     private String title;
 
+    // create content column
     @ColumnInfo(name = Constants.COLUMN_CONTENT)
     private String content;
 
