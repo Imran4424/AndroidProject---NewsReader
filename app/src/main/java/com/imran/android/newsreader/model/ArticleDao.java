@@ -28,20 +28,12 @@ public interface ArticleDao {
     @Delete
     void reset(List<ArticleData> articleDataList);
 
-    // update query
-    @Query("UPDATE " + Constants.TABLE_NAME_ARTICLE +
-            " SET title = :uTitle, content = :uContent  WHERE ID = :uID")
-    void updateTitle_Content(int uID, String uTitle, String uContent);
 
-    // update query
-    @Query("UPDATE " + Constants.TABLE_NAME_ARTICLE +
-            " SET articleID = :uArticleID, title = :uTitle WHERE ID = :uID")
-    void updateArticleID_Title_Content(int uID, int uArticleID, String uTitle);
 
     // update query
     @Query("UPDATE " + Constants.TABLE_NAME_ARTICLE +
             " SET articleID = :uArticleID, title = :uTitle, content = :uContent WHERE ID = :uID")
-    void updateAll(int uID, int uArticleID, String uTitle, String uContent);
+    void update(int uID, int uArticleID, String uTitle, String uContent);
 
     // get all data query
     @Query("SELECT * FROM " + Constants.TABLE_NAME_ARTICLE)
