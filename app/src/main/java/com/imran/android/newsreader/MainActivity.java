@@ -78,7 +78,11 @@ public class MainActivity extends AppCompatActivity {
                         String articleTitle = jsonObject.getString("title");
                         String articleUrl = jsonObject.getString("url");
 
-                        
+                        url = new URL(articleUrl);
+                        httpURLConnection = (HttpURLConnection) url.openConnection();
+                        String articleContent = getResultUrl(httpURLConnection);
+
+                        Log.i("HTML", articleContent);
                     }
                 }
 
