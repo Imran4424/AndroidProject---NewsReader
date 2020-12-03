@@ -27,7 +27,17 @@ public interface ArticleDao {
     // delete all query
     @Delete
     void reset(List<ArticleData> articleDataList);
-    
+
+    // update query
+    @Query("UPDATE " + Constants.TABLE_NAME_ARTICLE +
+            " SET title = :uTitle, content = :uContent  WHERE ID = :uID")
+    void update(int uID, String uTitle, String uContent);
+
+    // update query
+    @Query("UPDATE " + Constants.TABLE_NAME_ARTICLE +
+            " SET articleID = :uArticleID, title = :uTitle WHERE ID = :uID")
+    void update(int uID, int uArticleID, String uTitle);
+
     // update query
     @Query("UPDATE " + Constants.TABLE_NAME_ARTICLE +
             " SET articleID = :uArticleID, title = :uTitle, content = :uContent WHERE ID = :uID")
