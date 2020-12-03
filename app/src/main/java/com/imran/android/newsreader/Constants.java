@@ -11,4 +11,5 @@ public class Constants {
     // column name
     public static final String COLUMN_ARTICLE_ID = "ArticleID";
     public static final String COLUMN_TITLE = "Title";
+    public static final String COLUMN_CONTENT = "Content";
 }
