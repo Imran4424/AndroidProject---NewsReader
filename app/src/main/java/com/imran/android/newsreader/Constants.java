@@ -7,4 +7,8 @@ public class Constants {
     // model constants
     public static final String TABLE_NAME_ARTICLE = "ArticleTable";
     public static final String DB_NAME = "articleDB";
+
+    // column name
+    public static final String COLUMN_ARTICLE_ID = "ArticleID";
+    public static final String COLUMN_TITLE = "Title";
 }

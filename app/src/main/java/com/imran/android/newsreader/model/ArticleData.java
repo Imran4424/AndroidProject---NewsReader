@@ -1,6 +1,7 @@
 package com.imran.android.newsreader.model;
 
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import com.imran.android.newsreader.Constants;
 
@@ -12,5 +13,9 @@ import java.io.Serializable;
 
 @Entity(tableName = Constants.TABLE_NAME_ARTICLE)
 public class ArticleData implements Serializable {
+    // create id column
+    @PrimaryKey(autoGenerate = true)
+    private int ID;
+
 
 }
