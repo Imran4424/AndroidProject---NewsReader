@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-
                 Log.i("URL content", result);
                 return result;
             } catch (Exception e) {
