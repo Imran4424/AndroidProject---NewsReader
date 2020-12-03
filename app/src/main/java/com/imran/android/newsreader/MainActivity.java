@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     url = new URL("https://hacker-news.firebaseio.com/v0/item/" + articleId + ".json?print=pretty");
                     httpURLConnection = (HttpURLConnection) url.openConnection();
 
-                    result = getResultUrl(httpURLConnection);
+                    String articleInfo = getResultUrl(httpURLConnection);
 
                     Log.i("Article Info", result);
                 }
