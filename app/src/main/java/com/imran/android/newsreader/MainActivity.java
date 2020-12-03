@@ -77,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
                     if (!jsonObject.isNull("title") && !jsonObject.isNull("url")) {
                         String articleTitle = jsonObject.getString("title");
                         String articleUrl = jsonObject.getString("url");
-                    }
 
-                    Log.i("Article Info", result);
+                        Log.i("Title and URL", articleTitle + articleUrl);
+                    }
                 }
 
 
