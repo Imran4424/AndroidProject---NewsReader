@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         String articleTitle = jsonObject.getString("title");
                         String articleUrl = jsonObject.getString("url");
 
-                        Log.i("Title and URL", articleTitle + articleUrl);
+                        
                     }
                 }
 
