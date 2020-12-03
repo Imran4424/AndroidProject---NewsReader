@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -70,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
                     httpURLConnection = (HttpURLConnection) url.openConnection();
 
                     String articleInfo = getResultUrl(httpURLConnection);
+
+                    JSONObject jsonObject = new JSONObject(articleInfo);
+
+                    if (!jsonObject.isNull("title") && !jsonObject.isNull("url")) {
+                        String articleTitle = jsonObject.getString("title");
+                        String articleUrl = jsonObject.getString("url");
+                    }
 
                     Log.i("Article Info", result);
                 }
