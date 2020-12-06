@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         titleList = database.articleDao().getAllTitle();
-        
+
         recyclerView = findViewById(R.id.recyclerView);
         newsListRecyclerAdapter = new NewsListRecyclerAdapter(this, titleList);
         linearLayoutManager = new LinearLayoutManager(this);
@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
                         Log.i("HTML", articleContent);
                         database.articleDao().insert(new ArticleData(articleId, articleTitle, articleContent));
+                        newsListRecyclerAdapter.notifyDataSetChanged();
                     }
                 }
 
