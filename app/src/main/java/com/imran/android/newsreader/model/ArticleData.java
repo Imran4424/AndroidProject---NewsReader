@@ -30,6 +30,14 @@ public class ArticleData implements Serializable {
     @ColumnInfo(name = Constants.COLUMN_CONTENT)
     private String content;
 
+    public ArticleData() { }
+
+    public ArticleData(int articleID, String title, String content) {
+        this.articleID = articleID;
+        this.title = title;
+        this.content = content;
+    }
+
     // generate getter and setter
     public int getID() {
         return ID;

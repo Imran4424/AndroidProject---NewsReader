@@ -8,6 +8,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.imran.android.newsreader.model.ArticleData;
+import com.imran.android.newsreader.model.RoomDB;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -25,10 +28,14 @@ public class MainActivity extends AppCompatActivity {
     NewsListRecyclerAdapter newsListRecyclerAdapter;
     LinearLayoutManager linearLayoutManager;
 
+    RoomDB database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        database = RoomDB.getInstance(this);
 
         DownloadTask downloadTask = new DownloadTask();
         try {
@@ -83,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         String articleContent = getResultUrl(httpURLConnection);
 
                         Log.i("HTML", articleContent);
+                        database.articleDao().insert(new ArticleData());
                     }
                 }
 
