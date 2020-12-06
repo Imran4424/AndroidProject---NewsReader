@@ -24,6 +24,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     List<String> titleList = new ArrayList<>();
+    List<ArticleData> articleDataList = new ArrayList<>();
     RecyclerView recyclerView;
     NewsListRecyclerAdapter newsListRecyclerAdapter;
     LinearLayoutManager linearLayoutManager;
@@ -55,7 +56,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateListView() {
         titleList.clear();
-        titleList = database.articleDao().getAllTitle();
+        articleDataList = database.articleDao().getAll();
+        for (int i = 0; i < articleDataList.size(); i++) {
+            titleList.add(articleDataList.get(i).getTitle());
+        }
         newsListRecyclerAdapter.notifyDataSetChanged();
     }
 
@@ -98,7 +102,12 @@ public class MainActivity extends AppCompatActivity {
                         String articleContent = getResultUrl(httpURLConnection);
 
                         Log.i("HTML", articleContent);
-                        database.articleDao().insert(new ArticleData(articleId, articleTitle, articleContent));
+                        ArticleData articleData = new ArticleData();
+                        articleData.setArticleID(articleId);
+                        articleData.setTitle(articleTitle);
+                        articleData.setContent(articleContent);
+
+                        database.articleDao().insert(articleData);
                         updateListView();
                     }
                 }

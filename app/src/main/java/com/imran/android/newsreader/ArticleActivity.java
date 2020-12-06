@@ -2,10 +2,12 @@ package com.imran.android.newsreader;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.imran.android.newsreader.model.ArticleData;
 import com.imran.android.newsreader.model.RoomDB;
 
 import java.util.ArrayList;
@@ -14,9 +16,9 @@ import java.util.List;
 public class ArticleActivity extends AppCompatActivity {
     public static int position;
     private List<String> articleContentList = new ArrayList<>();
+    private List<ArticleData> articleDataList = new ArrayList<>();
 
     private RoomDB database;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,8 @@ public class ArticleActivity extends AppCompatActivity {
         articleWebView.setWebViewClient(new WebViewClient());
 
         database = RoomDB.getInstance(this);
-        articleContentList = database.articleDao().getAllContent();
+        articleDataList = database.articleDao().getAll();
 
-        articleWebView.loadData(articleContentList.get(position), "text/html", "UTF-8");
+        articleWebView.loadData(articleDataList.get(position).getContent(), "text/html", "UTF-8");
     }
 }
