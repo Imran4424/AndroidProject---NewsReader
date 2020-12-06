@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         DownloadTask downloadTask = new DownloadTask();
         try {
-            downloadTask.execute("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty");
+            //downloadTask.execute("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty");
         } catch (Exception e) {
             e.printStackTrace();
         }
