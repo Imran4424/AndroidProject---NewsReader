@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         titleList = database.articleDao().getAllTitle();
-
         recyclerView = findViewById(R.id.recyclerView);
         newsListRecyclerAdapter = new NewsListRecyclerAdapter(this, titleList);
         linearLayoutManager = new LinearLayoutManager(this);
