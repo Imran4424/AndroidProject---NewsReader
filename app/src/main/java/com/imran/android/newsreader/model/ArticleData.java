@@ -20,7 +20,7 @@ public class ArticleData implements Serializable {
 
     // create articleID column
     @ColumnInfo(name = Constants.COLUMN_ARTICLE_ID)
-    private int articleID;
+    private String articleID;
 
     // create title column
     @ColumnInfo(name = Constants.COLUMN_TITLE)
@@ -32,7 +32,7 @@ public class ArticleData implements Serializable {
 
     public ArticleData() { }
 
-    public ArticleData(int articleID, String title, String content) {
+    public ArticleData(String articleID, String title, String content) {
         this.articleID = articleID;
         this.title = title;
         this.content = content;
@@ -47,11 +47,11 @@ public class ArticleData implements Serializable {
         this.ID = ID;
     }
 
-    public int getArticleID() {
+    public String getArticleID() {
         return articleID;
     }
 
-    public void setArticleID(int articleID) {
+    public void setArticleID(String articleID) {
         this.articleID = articleID;
     }
 

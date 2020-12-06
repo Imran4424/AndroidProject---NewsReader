@@ -1,6 +1,7 @@
 package com.imran.android.newsreader;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ public class NewsListRecyclerAdapter extends RecyclerView.Adapter<NewsListRecycl
     @Override
     public void onBindViewHolder(@NonNull NewsListRecyclerAdapter.ViewHolder holder, int position) {
         holder.textView.setText(titleList.get(position));
+        holder.position = position;
     }
 
     @Override
@@ -45,10 +47,21 @@ public class NewsListRecyclerAdapter extends RecyclerView.Adapter<NewsListRecycl
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView textView;
+        int position;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textView = itemView.findViewById(R.id.itemTitleTextView);
+
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent articleIntent = new Intent(context, ArticleActivity.class);
+                    ArticleActivity.position = position;
+
+                    context.startActivity(articleIntent);
+                }
+            });
         }
     }
 }

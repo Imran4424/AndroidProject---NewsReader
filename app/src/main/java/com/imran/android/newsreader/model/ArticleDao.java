@@ -43,6 +43,14 @@ public interface ArticleDao {
             " SET articleID = :uArticleID, title = :uTitle, content = :uContent WHERE ID = :uID")
     void update(int uID, int uArticleID, String uTitle, String uContent);
 
+    // get all title
+    @Query("SELECT title FROM " + Constants.TABLE_NAME_ARTICLE)
+    List<String> getAllTitle();
+
+    // get all content
+    @Query("SELECT content FROM " + Constants.TABLE_NAME_ARTICLE)
+    List<String> getAllContent();
+
     // get all data query
     @Query("SELECT * FROM " + Constants.TABLE_NAME_ARTICLE)
     List<ArticleData> getAll();

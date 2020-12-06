@@ -5,7 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ArticleActivity extends AppCompatActivity {
+    public static int position;
+    List<String> articleContentList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

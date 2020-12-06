@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         String articleContent = getResultUrl(httpURLConnection);
 
                         Log.i("HTML", articleContent);
-                        //database.articleDao().insert(new ArticleData(articleId, articleTitle, articleContent));
+                        database.articleDao().insert(new ArticleData(articleId, articleTitle, articleContent));
                     }
                 }
 
