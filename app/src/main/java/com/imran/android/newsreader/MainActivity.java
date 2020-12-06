@@ -44,13 +44,19 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        titleList = database.articleDao().getAllTitle();
-
         recyclerView = findViewById(R.id.recyclerView);
         newsListRecyclerAdapter = new NewsListRecyclerAdapter(this, titleList);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(newsListRecyclerAdapter);
+
+        updateListView();
+    }
+
+    private void updateListView() {
+        titleList.clear();
+        titleList = database.articleDao().getAllTitle();
+        newsListRecyclerAdapter.notifyDataSetChanged();
     }
 
     public class DownloadTask extends AsyncTask<String, Void, String> {
@@ -93,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
                         Log.i("HTML", articleContent);
                         database.articleDao().insert(new ArticleData(articleId, articleTitle, articleContent));
-                        newsListRecyclerAdapter.notifyDataSetChanged();
+                        updateListView();
                     }
                 }
 
