@@ -4,13 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+import com.imran.android.newsreader.model.RoomDB;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleActivity extends AppCompatActivity {
     public static int position;
-    List<String> articleContentList = new ArrayList<>();
+    private List<String> articleContentList = new ArrayList<>();
+
+    private RoomDB database;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,5 +24,12 @@ public class ArticleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_article);
 
         WebView articleWebView = findViewById(R.id.articleWebView);
+        articleWebView.getSettings().setJavaScriptEnabled(true);
+        articleWebView.setWebViewClient(new WebViewClient());
+
+        database = RoomDB.getInstance(this);
+        articleContentList = database.articleDao().getAllContent();
+
+        articleWebView.loadData(articleContentList.get(position), "text/html", "UTF-8");
     }
 }
